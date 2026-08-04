@@ -28,15 +28,10 @@ class $modify(GlitchLabel, CCLabelBMFont) {
         int offsetPx = Mod::get()->getSettingValue<int64_t>("font-glitch-offset");
         if (offsetPx <= 0) return;
 
-        auto children = label->getChildren();
-        if (!children) return;
-
-        CCObject* obj;
-        CCARRAY_FOREACH(children, obj) {
-            if (auto sprite = typeinfo_cast<CCSprite*>(obj)) {
-                auto pos = sprite->getPosition();
-                sprite->setPosition({ pos.x, pos.y - static_cast<float>(offsetPx) });
-            }
+        for (auto sprite : label->getChildrenExt<CCSprite>()) {
+            auto pos = sprite->getPosition();
+            sprite->setPosition({ pos.x, pos.y - static_cast<float>(offsetPx) });
         }
     }
 };
+
