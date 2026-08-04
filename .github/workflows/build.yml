@@ -1,0 +1,29 @@
+
+name: Build
+ 
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+ 
+jobs:
+  build:
+    name: Windows
+    runs-on: windows-latest
+ 
+    steps:
+      - uses: actions/checkout@v4
+ 
+      - name: Build the mod
+        id: build
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          target: Win64
+ 
+      - name: Upload .geode file
+        uses: actions/upload-artifact@v4
+        with:
+          name: FontGlitch14-Windows
+          path: ${{ steps.build.outputs.build-output }}/*.geode
+ 
