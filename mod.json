@@ -1,0 +1,29 @@
+{
+  "geode": "5.8.2",
+  "gd": {
+    "win": "2.2081",
+    "android": "2.2081",
+    "mac": "2.2081",
+    "ios": "2.2081"
+  },
+  "version": "v1.0.0",
+  "id": "com.yourname.fontglitch14",
+  "name": "1.4 Font Glitch",
+  "developer": "YourName",
+  "description": "Brings back the classic GD 1.4 font vertical-offset rendering glitch.",
+  "settings": {
+    "font-glitch-offset": {
+      "name": "Font Glitch Offset",
+      "description": "How many pixels to shift label text down (1.4's glitch was roughly 1-2px at native res).",
+      "type": "int",
+      "default": 1,
+      "min": 0,
+      "max": 24
+    },
+    "preview-font-glitch": {
+      "type": "custom:preview-button",
+      "name": "Preview Font Glitch",
+      "description": "Opens a popup showing sample text with the current offset applied live."
+    }
+  }
+}
